@@ -1,19 +1,17 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
 import { getFunctions, httpsCallable } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-functions.js';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDPil-js8r6xyVLQ7UENYI_pu4R8V6g3MQ",
-  authDomain: "inside-out-test.firebaseapp.com",
-  projectId: "inside-out-test",
-  storageBucket: "inside-out-test.appspot.com",
-  messagingSenderId: "217935526064",
-  appId: "1:217935526064:web:5ef643d7d3f6ea688c2375",
-  measurementId: "G-WDP6SJM3ZE"
+const fetchFirebaseConfig = async () => {
+  const response = await fetch('/getFirebaseConfig');
+  return response.json();
 };
 
-const app = initializeApp(firebaseConfig);
-const functions = getFunctions(app);
-
+const init = async () => {
+  const firebaseConfig = await fetchFirebaseConfig();
+  const app = initializeApp(firebaseConfig);
+  const functions = getFunctions(app);
+};
+init();
 document.addEventListener('DOMContentLoaded', () => {
   const chatbox = document.querySelector(".chatbox");
   const chatInput = document.querySelector(".chat-input textarea");
