@@ -16,10 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatbox = document.querySelector(".chatbox");
   const chatInput = document.querySelector(".chat-input textarea");
   const sendChatBtn = document.querySelector(".chat-input span");
+  const surveyBox = document.querySelector(".survey-box");
 
   let userMessage = null;
   const inputInitHeight = chatInput.scrollHeight;
-  let context = [{ role: "system", content: "You are a helpful assistant." }];
+  let context = [];
+
 
   const createChatLi = (message, className) => {
     const chatLi = document.createElement("li");
@@ -29,7 +31,21 @@ document.addEventListener('DOMContentLoaded', () => {
     chatLi.querySelector("p").textContent = message;
     return chatLi;
   }
+  const startSurvey = () => {
+    userMessage = "설문을 시작할래요";
+    chatbox.innerHTML = '';
+    chatbox.appendChild(createChatLi(userMessage, "outgoing"));
+    chatbox.scrollTo(0, chatbox.scrollHeight);
 
+    setTimeout(() => {
+      const incomingChatLi = createChatLi("생각 중...", "incoming");
+      chatbox.appendChild(incomingChatLi);
+      chatbox.scrollTo(0, chatbox.scrollHeight);
+      generateResponse(incomingChatLi);
+    }, 600);
+  }
+
+  surveyBox.addEventListener("click", startSurvey);
   const generateResponse = async (chatElement) => {
     const messageElement = chatElement.querySelector("p");
 

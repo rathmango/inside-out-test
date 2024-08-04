@@ -10,6 +10,42 @@
       {
         "source": "/process",
         "function": "processMessage"
+      },
+      {
+        "source": "/process2",
+        "function": "processMessage2"
+      },
+      {
+        "source": "/process3",
+        "function": "processMessage3"
+      },
+      {
+        "source": "/process4",
+        "function": "processMessage4"
+      },
+      {
+        "source": "/process5",
+        "function": "processMessage5"
+      },
+      {
+        "source": "/process6",
+        "function": "processMessage6"
+      },
+      {
+        "source": "/process7",
+        "function": "processMessage7"
+      },
+      {
+        "source": "/process8",
+        "function": "processMessage8"
+      },
+      {
+        "source": "/process9",
+        "function": "processMessage9"
+      },
+      {
+        "source": "/process10",
+        "function": "processMessage10"
       }
     ]
   },

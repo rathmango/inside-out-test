@@ -52,7 +52,7 @@ exports.processMessage = functions.https.onRequest((request, response) => {
               console.log(`함수 호출 발생: ${functionCall.name}`, functionCall.arguments);
               
               const functionResult = JSON.parse(functionCall.arguments);
-              const systemReply = "계속 진행해주세요";
+              const systemReply = `system: 질문 ${functionResult.questionNumber}에 대한 답변: ${functionResult.answer}`;
               console.log("시스템 응답:", systemReply);
               
           // function call 결과를 컨텍스트에 추가

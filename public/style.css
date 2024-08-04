@@ -176,3 +176,24 @@ header h2 {
     display: none;
   }
 }
+
+.start-survey {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.survey-box {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.survey-box:hover {
+  background-color: #0056b3;
+}
